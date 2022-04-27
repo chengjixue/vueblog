@@ -1,6 +1,8 @@
 package edu.xcj.controller;
 
 
+import edu.xcj.common.lang.Result;
+import edu.xcj.entity.User;
 import edu.xcj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +26,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/index")
-    public Object index(){
-        return userService.getById(1).toString();
+    public Result index(){
+        User user = userService.getById(1);
+        return Result.succ(user);
     }
 
 

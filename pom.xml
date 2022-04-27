@@ -76,6 +76,7 @@
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <fork>true</fork>
                         </exclude>
                     </excludes>
                 </configuration>
