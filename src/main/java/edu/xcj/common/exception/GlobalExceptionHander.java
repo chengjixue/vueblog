@@ -34,6 +34,13 @@ public class GlobalExceptionHander {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public Result handle(IllegalArgumentException e){
+        log.error("Assert异常：{}",e);
+        return Result.fail(e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public Result handle(MethodArgumentNotValidException e){
         log.error("实体校验异常：{}",e);
